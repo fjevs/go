@@ -44,7 +44,7 @@ object Echo : BuildType({
 
     steps {
         script {
-			val stepName = "variable name"
+			val stepName = "kxe"
             name = stepName
             scriptContent = "echo %asd%"
         }
