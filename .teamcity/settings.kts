@@ -1,7 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.projectFeatures.buildReportTab
-import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -45,7 +44,6 @@ project {
     }
 
     subProject(Hue)
-    subProject(Hue1)
 }
 
 
@@ -62,42 +60,5 @@ object Hue_Echo : BuildType({
         script {
             scriptContent = "echo hue"
         }
-    }
-})
-
-
-object Hue1 : Project({
-    name = "Hue (1)"
-
-    vcsRoot(Hue1_HttpsGithubComFjevsHueRefsHeadsMain)
-
-    buildType(Hue1_Build)
-})
-
-object Hue1_Build : BuildType({
-    name = "Build"
-
-    vcs {
-        root(Hue1_HttpsGithubComFjevsHueRefsHeadsMain)
-    }
-
-    steps {
-        script {
-            scriptContent = """
-                chcp 65001
-                echo hue
-            """.trimIndent()
-        }
-    }
-})
-
-object Hue1_HttpsGithubComFjevsHueRefsHeadsMain : GitVcsRoot({
-    name = "https://github.com/fjevs/hue#refs/heads/main"
-    url = "https://github.com/fjevs/hue"
-    branch = "refs/heads/main"
-    branchSpec = "refs/heads/*"
-    authMethod = password {
-        userName = "fjevs"
-        password = "credentialsJSON:258468fa-1bf1-4a50-b5ed-536e196ae4b0"
     }
 })
