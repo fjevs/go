@@ -33,6 +33,10 @@ project {
 	
 	sequential {
 		buildType(Echo)
+		parallel {
+			buildType(firstp)
+			buildType(secondp)
+		}
 		buildType(huecho)
 	}
 }
@@ -83,3 +87,44 @@ object huecho : BuildType({
 
 })
 
+object firstp : BuildType({
+    name = "firstp"
+
+    params {
+        param("asd", "5")
+    }
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
+
+    steps {
+        script {
+			val stepName = "kxe"
+            name = stepName
+            scriptContent = "echo %asd%"
+        }
+    }
+
+})
+
+object secondp : BuildType({
+    name = "secondp"
+
+    params {
+        param("asd", "5")
+    }
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
+
+    steps {
+        script {
+			val stepName = "kxe"
+            name = stepName
+            scriptContent = "echo %asd%"
+        }
+    }
+
+})
