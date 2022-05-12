@@ -29,6 +29,12 @@ version = "2022.04"
 project {
 
     buildType(Echo)
+	buildType(huecho)
+	
+	sequential {
+		buildType(Echo)
+		buildType(huecho)
+	}
 }
 
 object Echo : BuildType({
@@ -50,9 +56,30 @@ object Echo : BuildType({
         }
     }
 
-    triggers {
-        vcs {
-            branchFilter = ""
+})
+
+object huecho : BuildType({
+    name = "huecho"
+
+    params {
+        param("zxc", "9")
+    }
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
+	
+/* 	dependencies {
+		snapshot(Echo) {}
+	} */
+
+    steps {
+        script {
+			val stepName = "fff"
+            name = stepName
+            scriptContent = "echo %asd%"
         }
     }
+
 })
+
