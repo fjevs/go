@@ -35,7 +35,7 @@ object Echo : BuildType({
     name = "echo"
 
     params {
-        param("1", "2")
+        param("asd", "2")
     }
 
     vcs {
