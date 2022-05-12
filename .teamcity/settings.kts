@@ -30,6 +30,8 @@ project {
 
     buildType(Echo)
 	buildType(huecho)
+	buildType(firstp)
+	buildType(secondp)
 	
 	sequential {
 		buildType(Echo)
