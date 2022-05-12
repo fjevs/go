@@ -28,13 +28,13 @@ version = "2022.04"
 
 project {
 
-    buildType(Echo)
+    buildType(name: "echo")
 	buildType(huecho)
 	buildType(firstp)
 	buildType(secondp)
 	
 	sequential {
-		buildType(Echo)
+		buildType(name: "echo")
 		parallel {
 			buildType(firstp)
 			buildType(secondp)
@@ -43,8 +43,8 @@ project {
 	}
 }
 
-object Echo : BuildType({
-    name = "echo"
+class Hueven(name: String) : BuildType({
+    this.name = name
 
     params {
         param("asd", "5")
@@ -61,7 +61,6 @@ object Echo : BuildType({
             scriptContent = "echo %asd%"
         }
     }
-
 })
 
 object huecho : BuildType({
