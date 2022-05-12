@@ -33,10 +33,6 @@ project {
 object Echo : BuildType({
     name = "echo"
 
-    vcs {
-        root(DslContext.settingsRoot)
-    }
-
     steps {
         script {
             scriptContent = "echo hue"
