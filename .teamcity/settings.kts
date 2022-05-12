@@ -44,7 +44,7 @@ object Echo : BuildType({
 
     steps {
         script {
-            scriptContent = "echo hue"
+            scriptContent = "echo %asd%"
         }
     }
 
