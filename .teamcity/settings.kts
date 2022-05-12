@@ -77,7 +77,7 @@ object huecho : BuildType({
         script {
 			val stepName = "fff"
             name = stepName
-            scriptContent = "echo %asd%"
+            scriptContent = "echo %zxc%"
         }
     }
 
