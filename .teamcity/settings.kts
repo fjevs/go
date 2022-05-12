@@ -44,6 +44,7 @@ object Echo : BuildType({
 
     steps {
         script {
+			name = "Step name"
             scriptContent = "echo %asd%"
         }
     }
