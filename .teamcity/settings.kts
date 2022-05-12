@@ -28,13 +28,13 @@ version = "2022.04"
 
 project {
 
-    buildType(name: "echo")
+    buildType(Hueven(name: "xecho"))
 	buildType(huecho)
 	buildType(firstp)
 	buildType(secondp)
 	
 	sequential {
-		buildType(name: "echo")
+		buildType(Hueven(name: "xecho"))
 		parallel {
 			buildType(firstp)
 			buildType(secondp)
