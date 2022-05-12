@@ -34,6 +34,10 @@ project {
 object Echo : BuildType({
     name = "echo"
 
+    params {
+        param("1", "2")
+    }
+
     vcs {
         root(DslContext.settingsRoot)
     }
